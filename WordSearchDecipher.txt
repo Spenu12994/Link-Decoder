@@ -1,0 +1,70 @@
+// Online C++ compiler to run C++ program online
+#include <iostream>
+#include <string>
+
+std::string ArrayX[15][15] = {
+{"H","x","u","6","4","o","h","d","V","N","C","1","T","V","8"}, 
+{"3","N","u","D","s","c","m","c","P","b","C","s","o","q","z"},
+{"Z","d","q","S","7","5","0","c","c","I","P","h","K","w","q"},
+{"s","G","G","N","k","j","g","u","H","V","x","P","h","z","q"},
+{"m","E","g","M","B","i","p","E","o","I","o","L","g","s","d"},
+{"L","z","d","5","p","i","R","h","q","2","V","b","n","V","m"},
+{"P","p","P","K","w","w","B","O","W","W","H","q","u","n","Q"},
+{"p","l","Z","Q","M","R","S","C","Z","3","w","t","F","A","u"},
+{"c","Z","n","A","8","c","J","3","M","X","F","I","0","R","R"},
+{"F","1","5","j","A","j","M","n","D","F","Q","v","b","T","p"},
+{"7","G","T","q","h","C","L","t","y","o","W","p","z","v","6"},
+{"m","D","R","A","v","B","l","D","2","u","Y","X","e","L","I"},
+{"N","o","D","N","i","Z","i","r","L","o","V","5","Z","W","c"},
+{"O","x","k","Q","x","i","C","K","y","F","Z","l","F","J","U"},
+{"k","l","r","6","L","G","B","u","G","o","B","A","m","i","O"}};
+
+int length = 7;
+
+std::string getWithOffsetX(int Offset, int x){
+    std::string PassCode = "";
+    if(Offset < (16 - length)){
+    
+        for(int i = Offset; i < Offset + length; i++){
+            PassCode = PassCode + ArrayX[i][x];
+        }
+         
+    }
+    return PassCode;
+}
+
+std::string getWithOffsetY(int Offset, int y){
+    std::string PassCode = "";
+    if(Offset < (16 - length)){
+    
+        for(int i = Offset; i < Offset + length; i++){
+            PassCode = PassCode + ArrayX[y][i];
+        }
+         
+    }
+    return PassCode;
+}
+
+
+
+int main() {
+    // Write C++ code here
+
+
+    for(int y = 0; y < 15; y++){
+        std::cout << "line " << y + 1 << ":\n" ;
+        for(int x = 0; x < (16 - length); x++){
+            std::cout << "https://discord.gg/" << getWithOffsetX(x,y) << "\n";
+        }
+        
+    }
+    std::cout << "horizontal\n";
+
+    for(int x = 0; x < 15; x++){
+        std::cout << "line " << x + 1 << ":\n" ;
+        for(int y = 0; y < (16 - length); y++){
+            std::cout << "https://discord.gg/" << getWithOffsetY(y,x) << "\n";
+        }
+    }
+    return 0;
+}
